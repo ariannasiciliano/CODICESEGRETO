@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Il codice segreto</title>
+
+		<link rel="preconnect" href="https://fonts.gstatic.com"> 
+		<link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<div class="griglia">
+
+		<div class="cella"></div>
+		<div class="cella tripla"><h2>Decodifica il codice segreto</h2></div>
+		<div class="cella"></div>
+
+
+		<div class="cella"></div>
+		<div class="tripla">
+			<input type="text"></input>
+		</div>
+		<div class="cella"></div>
+
+
+		<div class="cella"></div>
+		<div class="tripla">
+     	<div id="bottoneswap" class="bottoneswap">⇆ Inverti</div>
+     	<div id="bottonedot" class="bottonedot">• Pallini</div>
+     	<div id="bottonefinal" class="bottonefinal">≠ Cambia</div>
+     	<br>
+     	<br>
+		<div id="el1" class="boxswap"></div>
+		</div>
+		<div class="cella"></div>
+
+
+		<div class="cella"></div>
+		<div class="cella">
+		<br>
+		<br>
+			<a class="buttonenc" href="encoding.html">Codifica</a>
+		</div>
+			<div class="cella"></div>
+		<div class="cella">
+		<br>
+		<br>
+			<a class="home" href="index.html">Home</a>	
+		</div>
+		<div class="cella"></div>
+
+	</div>
+
+<!-- javascript -->
+<script type="text/javascript" src="funzioni.js"></script>
+<script type="text/javascript">
+
+
+
+/*_________________________PRIMO PASSAGGIO__________________________*/
+
+	let input = document.querySelector('input')
+	let output = document.querySelector('.boxswap')
+	// let output_dot = document.querySelector('.boxswap')
+	// let output_final = document.querySelector('.boxswap')
+
+	let passaggi = [];
+
+	input.oninput = function(){ }
+	
+	let the_array = [];
+	let array = []
+	let numParole = 0;
+	let str = "";
+	let test = "ciao a tutti";
+
+
+/*_________________________PRIMO PASSAGGIO__________________________*/
+
+	let bottone_swap = document.querySelector("#bottoneswap")
+	let swapped = false;
+	let outcome_fun1 = [];
+	bottoneswap.onclick = function() {
+		// console.log(first_array.length )
+
+		if (passaggi.length == 0){
+			str = input.value
+			the_array = str.split(' ')
+			numParole = array.length
+		}
+		else {
+			the_array = passaggi[passaggi.length - 1]
+		}
+		// console.log(the_array)
+
+		outcome_fun1 = fun1(the_array);
+
+		let final1_string = ""
+		let item = document.createElement("div")
+
+		for (let a=0; a<outcome_fun1.length; a++) {
+			final1_string += outcome_fun1[a] + " ";
+		}
+
+		output.prepend(item);
+		item.prepend("⇆)" + " " + final1_string);
+
+		passaggi.push(outcome_fun1)
+		console.log(passaggi)
+	}
+
+/*_________________________SECONDO PASSAGGIO__________________________*/
+
+	let bottone_dot = document.querySelector("#bottonedot")
+	let dots = false;
+	let outcome_meno_pallini = [];
+	bottonedot.onclick = function() {
+
+		if (passaggi.length == 0){
+			str = input.value
+			the_array = str.split(' ')
+			numParole = array.length
+		}
+		else {
+			the_array = passaggi[passaggi.length - 1]
+		}
+
+		outcome_meno_pallini = meno_pallini(the_array);
+
+		let final2_string = ""
+		let item = document.createElement("div")
+
+		for (let a=0; a<outcome_meno_pallini.length; a++) {
+			final2_string += outcome_meno_pallini[a] + " ";
+		}
+
+		output.prepend(item);
+		item.prepend("•)" + " " + final2_string);
+
+		passaggi.push(outcome_meno_pallini)
+		console.log(passaggi)
+	}
+
+
+/*_________________________TERZO PASSAGGIO__________________________*/
+	let bottone_final = document.querySelector("#bottonefinal")
+	let alfabeto = false;
+	let outcome_fun3 = [];
+	bottonefinal.onclick = function() {
+
+		if (passaggi.length == 0){
+			str = input.value
+			the_array = str.split(' ')
+			numParole = array.length
+		}
+		else {
+			the_array = passaggi[passaggi.length - 1]
+		}
+
+		outcome_fun3 = fun3(the_array);
+
+		let final3_string = ""
+		let item = document.createElement("div")
+
+		for (let a=0; a<outcome_fun3.length; a++) {
+			final3_string += outcome_fun3[a] + " ";
+		}
+
+		output.prepend(item);
+		item.prepend("≠)" + " " + final3_string);
+
+		passaggi.push(outcome_fun3)
+		console.log(passaggi)
+	}
+
+
+	</script>
+
+</body>
+</html>
