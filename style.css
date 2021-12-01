@@ -96,6 +96,28 @@
 				}
 
 
+		.indice{
+			font-family: 'Montserrat', sans-serif;
+			display: inline;
+			padding: 10px 20px;
+			background-color: grey;
+			color: black;
+			font-size: 15px;
+			border: 2px solid grey;
+ 			cursor: pointer;
+  			transition: .3s linear;
+  			text-decoration: none;
+  			border-radius: 10px;
+  			font-weight: 700;
+			}
+
+		.indice:hover{
+  			background-color: transparent;
+  			color: grey;
+				}
+
+
+
 		.bottonindexdec{
 			font-family: 'Montserrat', sans-serif;
 			display: inline;
